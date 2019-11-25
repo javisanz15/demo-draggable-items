@@ -1,0 +1,16 @@
+.area-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    .example-card {
+        width: 80px;
+        height: 80px;
+        border-radius: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: lightgray;
+    }
+}

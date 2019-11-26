@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ManualApproachComponent } from './manual-approach/manual-approach.component';
 import {MatCardModule} from '@angular/material/card';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
    declarations: [
@@ -19,6 +21,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
       BrowserAnimationsModule,
       MatCardModule,
       DragDropModule,
+      MatButtonModule,
+      MatIconModule,
    ],
    providers: [],
    bootstrap: [

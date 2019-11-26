@@ -12,5 +12,15 @@
         justify-content: center;
         align-items: center;
         background-color: lightgray;
+        .button-area {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .clear-button-area {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
     }
 }

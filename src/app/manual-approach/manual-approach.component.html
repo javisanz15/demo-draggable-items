@@ -1,82 +1,35 @@
-<div class="area-container">
-    <mat-card id="card-1" class="example-card" cdkDragBoundary=".area-container" cdkDrag
-        (cdkDragMoved)="updateLine('card-1')">
+<div class="buttons-container">
+    <div class="button-area">
+        <button mat-flat-button color="primary" (click)="addNewNode()">Add Element</button>
+    </div>
+    <div class="button-area" (click)="removeNode()">
+        <button mat-flat-button color="primary">Remove Element</button>
+    </div>
+</div>
+<div class="area-container" *ngIf="showNodes$ | async as showNodes">
+    <mat-card *ngFor="let node of nodesToShow" id="{{node.id}}" class="example-card" cdkDragBoundary=".area-container" 
+    cdkDrag (cdkDragMoved)="updateLine(node.id)" [ngStyle]="{'top':getRandomValue('top', node.id), 'bottom':getRandomValue('bottom', node.id), 'left':getRandomValue('left', node.id), 'right':getRandomValue('right', node.id)}">
         <div class="button-area">
-            <button mat-icon-button (click)="createNewLink('card-1')" *ngIf="linkQuery !== 'card-1'">
+            <button mat-icon-button (click)="createNewLink(node.id)" *ngIf="linkQuery !== node.id">
                 <mat-icon>add</mat-icon>
             </button>
-            <button mat-icon-button (click)="deleteLinkQuery()" *ngIf="linkQuery === 'card-1'">
+            <button mat-icon-button (click)="deleteLinkQuery()" *ngIf="linkQuery === node.id">
                 <mat-icon>clear</mat-icon>
             </button>
         </div>
         <div class="clear-button-area">
-            <button mat-icon-button (click)="deleteLink('card-1')" *ngIf="unlinkQuery !== 'card-1'">
+            <button mat-icon-button (click)="deleteLink(node.id)" *ngIf="unlinkQuery !== node.id">
                 <mat-icon>remove</mat-icon>
             </button>
-            <button mat-icon-button (click)="deleteUnlinkQuery()" *ngIf="unlinkQuery === 'card-1'">
+            <button mat-icon-button (click)="deleteUnlinkQuery()" *ngIf="unlinkQuery === node.id">
                 <mat-icon>clear</mat-icon>
             </button>
         </div>
-        Card 1
-    </mat-card>
-    <mat-card id="card-2" class="example-card" cdkDragBoundary=".area-container" cdkDrag
-        (cdkDragMoved)="updateLine('card-2')">
-        <div class="button-area">
-            <button mat-icon-button (click)="createNewLink('card-2')" *ngIf="linkQuery !== 'card-2'">
-                <mat-icon>add</mat-icon>
-            </button>
-            <button mat-icon-button (click)="deleteLinkQuery()" *ngIf="linkQuery === 'card-2'">
-                <mat-icon>clear</mat-icon>
-            </button>
+        <div class="data-area">
+            <div class="icon-area">
+                <mat-icon>{{node.icon}}</mat-icon>
+            </div>
+            <div class="text-area">{{node.label}}</div>
         </div>
-        <div class="clear-button-area">
-            <button mat-icon-button (click)="deleteLink('card-2')" *ngIf="unlinkQuery !== 'card-2'">
-                <mat-icon>remove</mat-icon>
-            </button>
-            <button mat-icon-button (click)="deleteUnlinkQuery()" *ngIf="unlinkQuery === 'card-2'">
-                <mat-icon>clear</mat-icon>
-            </button>
-        </div>
-        Card 2
-    </mat-card>
-    <mat-card id="card-3" class="example-card" cdkDragBoundary=".area-container" cdkDrag
-        (cdkDragMoved)="updateLine('card-3')">
-        <div class="button-area">
-            <button mat-icon-button (click)="createNewLink('card-3')" *ngIf="linkQuery !== 'card-3'">
-                <mat-icon>add</mat-icon>
-            </button>
-            <button mat-icon-button (click)="deleteLinkQuery()" *ngIf="linkQuery === 'card-3'">
-                <mat-icon>clear</mat-icon>
-            </button>
-        </div>
-        <div class="clear-button-area">
-            <button mat-icon-button (click)="deleteLink('card-3')" *ngIf="unlinkQuery !== 'card-3'">
-                <mat-icon>remove</mat-icon>
-            </button>
-            <button mat-icon-button (click)="deleteUnlinkQuery()" *ngIf="unlinkQuery === 'card-3'">
-                <mat-icon>clear</mat-icon>
-            </button>
-        </div>
-        Card 3
-    </mat-card>
-    <mat-card id="card-4" class="example-card" cdkDragBoundary=".area-container" cdkDrag
-        (cdkDragMoved)="updateLine('card-4')">
-        <div class="button-area">
-            <button mat-icon-button (click)="createNewLink('card-4')" *ngIf="linkQuery !== 'card-4'">
-                <mat-icon>add</mat-icon>
-            </button>
-            <button mat-icon-button (click)="deleteLinkQuery()" *ngIf="linkQuery === 'card-4'">
-                <mat-icon>clear</mat-icon>
-            </button>
-        </div>
-        <div class="clear-button-area">
-            <button mat-icon-button (click)="deleteLink('card-4')" *ngIf="unlinkQuery !== 'card-4'">
-                <mat-icon>remove</mat-icon>
-            </button>
-            <button mat-icon-button (click)="deleteUnlinkQuery()" *ngIf="unlinkQuery === 'card-4'">
-                <mat-icon>clear</mat-icon>
-            </button>
-        </div>
-        Card 4
     </mat-card>
 </div>

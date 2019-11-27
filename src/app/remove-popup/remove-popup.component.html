@@ -1,0 +1,21 @@
+<div class="popup-area">
+  <form [formGroup]="form">
+    <div class="popup-title">
+      Select Node to Remove
+    </div>
+    <div class="popup-selection">
+      <mat-form-field>
+        <mat-label>Nodes</mat-label>
+        <mat-select formControlName="selection">
+          <mat-option *ngFor="let item of data.nodesToShow" [value]="item">
+            {{item.label}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="form.get('selection').value" cdkFocusInitial>Ok</button>
+</div>

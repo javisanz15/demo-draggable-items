@@ -64,7 +64,7 @@ export class ManualApproachComponent implements OnInit, AfterViewInit {
 
   public deleteConnection(start: string, end: string) {
     this.lineList.forEach(line => {
-      if (line.start.id === start && line.end.id === end) {
+      if ((line.start.id === start && line.end.id === end) || (line.end.id === start && line.start.id === end)) {
         const number = this.lineList.indexOf(line);
         line.remove();
         this.lineList.splice(number, 1);

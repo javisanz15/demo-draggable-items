@@ -44,9 +44,7 @@ export class ManualApproachComponent implements OnInit, AfterViewInit {
           return {
             ...item,
             top: `${Math.random() * 100}%`,
-            bottom: `${Math.random() * 100}%`,
             left: `${Math.random() * 100}%`,
-            right: `${Math.random() * 100}%`,
           }
         })
       }),
@@ -146,9 +144,7 @@ export class ManualApproachComponent implements OnInit, AfterViewInit {
         return {
           ...res,
           top: `${Math.random() * 100}%`,
-          bottom: `${Math.random() * 100}%`,
           left: `${Math.random() * 100}%`,
-          right: `${Math.random() * 100}%`,
         }
       }),
       tap(v => this.nodesToShow.push(v)),

@@ -138,21 +138,21 @@ export class ManualApproachComponent implements OnInit, AfterViewInit {
     this.nodesToShow = this.nodesToShow.filter(item => item.id !== node.id);
   }
 
-  public addNewNode() {
-    this.showNodes$ = this.nodesService.getNewNode().pipe(
-      map(res => {
-        return {
-          ...res,
-          top: `${Math.random() * 100}%`,
-          left: `${Math.random() * 100}%`,
-        }
-      }),
-      tap(v => this.nodesToShow.push(v)),
-      tap(v => this.lineList.forEach(line => {
-        line.position();
-      })),
-    );
-  }
+  // public addNewNode() {
+  //   this.showNodes$ = this.nodesService.getNewNode().pipe(
+  //     map(res => {
+  //       return {
+  //         ...res,
+  //         top: `${Math.random() * 100}%`,
+  //         left: `${Math.random() * 100}%`,
+  //       }
+  //     }),
+  //     tap(v => this.nodesToShow.push(v)),
+  //     tap(v => this.lineList.forEach(line => {
+  //       line.position();
+  //     })),
+  //   );
+  // }
 
   public getRandomValue(item: string, id: string): string {
     const result = this.nodesToShow.find(item => item.id === id);

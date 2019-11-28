@@ -1,0 +1,32 @@
+.area-container {
+    padding: 50px 0;
+    .column-area {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        .column-card {
+            background-color: lightgray;
+            min-width: 25%;
+            text-align: center;
+            cursor: pointer;
+        }
+        .column-short-card {
+            background-color: lightgray;
+            min-width: 15%;
+            text-align: center;
+            cursor: pointer;
+        }
+        .column-icon-card {
+            background-color: lightgray;
+            min-width: 25%;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            cursor: pointer;
+        }
+    }
+}

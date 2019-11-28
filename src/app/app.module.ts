@@ -15,15 +15,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RemovePopupComponent } from './remove-popup/remove-popup.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
-
-
+import { ManualApproach2Component } from './manual-approach-2/manual-approach-2.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
    declarations: [
       AppComponent,
       ManualApproachComponent,
       ComponentPopupComponent,
-      RemovePopupComponent
+      RemovePopupComponent,
+      ManualApproach2Component
    ],
    imports: [
       BrowserModule,
@@ -37,7 +38,8 @@ import {MatSelectModule} from '@angular/material/select';
       FormsModule,
       ReactiveFormsModule,
       MatSelectModule,
-      MatFormFieldModule
+      MatFormFieldModule,
+      MatGridListModule,
    ],
    providers: [],
    bootstrap: [
@@ -45,7 +47,7 @@ import {MatSelectModule} from '@angular/material/select';
    ],
    entryComponents: [
       ComponentPopupComponent,
-      RemovePopupComponent,
+      RemovePopupComponent
    ]
 })
 export class AppModule { }

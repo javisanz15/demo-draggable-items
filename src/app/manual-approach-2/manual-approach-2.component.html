@@ -1,0 +1,26 @@
+<div class="area-container" *ngIf="showNodes$ | async as showNodes">
+  <mat-grid-list cols="3">
+    <mat-grid-tile>
+      <div class="column-area">
+        <mat-card *ngFor="let raw of showNodes.raw" id="{{raw.id}}" class="column-card"
+        (click)="createConnection('raw', raw.id)">{{raw.label}}</mat-card>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="column-area">
+        <mat-card *ngFor="let linker of showNodes.linkers" id="{{linker.id}}" class="column-short-card"
+        (click)="createConnection('linker', linker.id)">{{linker.label}}
+        </mat-card>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="column-area">
+        <mat-card *ngFor="let target of showNodes.target" id="{{target.id}}" class="column-icon-card"
+        (click)="createConnection('target', target.id)">
+          <mat-icon>{{target.icon}}</mat-icon>
+          {{target.label}}
+        </mat-card>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

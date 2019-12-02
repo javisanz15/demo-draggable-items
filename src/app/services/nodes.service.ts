@@ -52,7 +52,7 @@ public nodesToShow = {
     },
     {
       label: 'Policy Number',
-      id: 'policyNumber',
+      id: 'policyNum',
       icon: 'satellite'
     },
     {

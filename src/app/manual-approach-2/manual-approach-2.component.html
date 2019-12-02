@@ -2,21 +2,27 @@
   <mat-grid-list cols="3">
     <mat-grid-tile>
       <div class="column-area">
-        <mat-card *ngFor="let raw of showNodes.raw" id="{{raw.id}}" class="column-card"
-        (click)="createConnection('raw', raw.id)">{{raw.label}}</mat-card>
-      </div>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <div class="column-area">
-        <mat-card *ngFor="let linker of showNodes.linkers" id="{{linker.id}}" class="column-short-card"
-        (click)="createConnection('linker', linker.id)">{{linker.label}}
+        <mat-card *ngFor="let raw of showNodes.raw" id="{{raw.id}}" class="column-card">
+          <mat-icon class="close-icon" (click)="removeConnection(raw.id)">remove</mat-icon>
+          <mat-icon class="add-icon" (click)="createConnection('raw', raw.id)">add</mat-icon>
+          {{raw.label}}
         </mat-card>
       </div>
     </mat-grid-tile>
     <mat-grid-tile>
       <div class="column-area">
-        <mat-card *ngFor="let target of showNodes.target" id="{{target.id}}" class="column-icon-card"
-        (click)="createConnection('target', target.id)">
+        <mat-card *ngFor="let linker of showNodes.linkers" id="{{linker.id}}" class="column-short-card">
+          <mat-icon class="close-icon" (click)="removeConnection(linker.id)">remove</mat-icon>
+          <mat-icon class="add-icon" (click)="createConnection('linker', linker.id)">add</mat-icon>
+          {{linker.label}}
+        </mat-card>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="column-area">
+        <mat-card *ngFor="let target of showNodes.target" id="{{target.id}}" class="column-icon-card">
+          <mat-icon class="close-icon" (click)="removeConnection(target.id)">remove</mat-icon>
+          <mat-icon class="add-icon" (click)="createConnection('target', target.id)">add</mat-icon>
           <mat-icon>{{target.icon}}</mat-icon>
           {{target.label}}
         </mat-card>

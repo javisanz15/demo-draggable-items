@@ -15,6 +15,7 @@ export class ManualApproach2Component implements OnInit {
   public rawSelected: string;
   public ruleSelected: string;
   public targetSelected: string;
+  public deletionTarget: string;
   public lineList: any[] = [];
   constructor(
     @Inject(DOCUMENT) document,
@@ -72,6 +73,25 @@ export class ManualApproach2Component implements OnInit {
 
     const result = new LeaderLine(element1, element2);
     this.lineList.push(result);
+  }
+
+  public removeConnection(id: string) {
+    if(!this.deletionTarget) {
+      this.deletionTarget = id;
+    } else {
+      this.deleteConnection(this.deletionTarget, id);
+      this.deletionTarget = null;
+    }
+  }
+
+  public deleteConnection(start: string, end: string) {
+    this.lineList.forEach(line => {
+      if ((line.start.id === start && line.end.id === end) || (line.end.id === start && line.start.id === end)) {
+        const number = this.lineList.indexOf(line);
+        line.remove();
+        this.lineList.splice(number, 1);
+      }
+    });
   }
 
 }

@@ -11,13 +11,13 @@
             background-color: lightgray;
             min-width: 25%;
             text-align: center;
-            cursor: pointer;
+            padding: 22px;
         }
         .column-short-card {
             background-color: lightgray;
             min-width: 15%;
             text-align: center;
-            cursor: pointer;
+            padding: 22px;
         }
         .column-icon-card {
             background-color: lightgray;
@@ -26,7 +26,24 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            cursor: pointer;
+            padding: 22px;
         }
     }
+}
+
+
+.close-icon {
+    font-size: 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+.add-icon {
+    font-size: 16px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
 }

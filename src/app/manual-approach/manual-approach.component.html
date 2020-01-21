@@ -1,35 +1,37 @@
-<div class="buttons-container">
-    <div class="button-area">
-        <button mat-flat-button color="primary" (click)="addNewNode()">Add Element</button>
-    </div>
-    <div class="button-area" (click)="removeNode()">
-        <button mat-flat-button color="primary">Remove Element</button>
-    </div>
-</div>
-<div class="area-container" *ngIf="showNodes$ | async as showNodes">
-    <mat-card *ngFor="let node of nodesToShow" id="{{node.id}}" class="example-card" cdkDragBoundary=".area-container" 
-    cdkDrag (cdkDragMoved)="updateLine(node.id)" [ngStyle]="{'top':getRandomValue('top', node.id), 'bottom':getRandomValue('bottom', node.id), 'left':getRandomValue('left', node.id), 'right':getRandomValue('right', node.id)}">
+<div class="draggable-app-container">
+    <div class="buttons-container">
         <div class="button-area">
-            <button mat-icon-button (click)="createNewLink(node.id)" *ngIf="linkQuery !== node.id">
-                <mat-icon>add</mat-icon>
-            </button>
-            <button mat-icon-button (click)="deleteLinkQuery()" *ngIf="linkQuery === node.id">
-                <mat-icon>clear</mat-icon>
-            </button>
+            <button mat-flat-button color="primary" (click)="addNewNode()">Add Element</button>
         </div>
-        <div class="clear-button-area">
-            <button mat-icon-button (click)="deleteLink(node.id)" *ngIf="unlinkQuery !== node.id">
-                <mat-icon>remove</mat-icon>
-            </button>
-            <button mat-icon-button (click)="deleteUnlinkQuery()" *ngIf="unlinkQuery === node.id">
-                <mat-icon>clear</mat-icon>
-            </button>
+        <div class="button-area" (click)="removeNode()">
+            <button mat-flat-button color="primary">Remove Element</button>
         </div>
-        <div class="data-area">
-            <div class="icon-area">
-                <mat-icon>{{node.icon}}</mat-icon>
+    </div>
+    <div class="area-container" *ngIf="showNodes$ | async as showNodes">
+        <mat-card *ngFor="let node of nodesToShow" id="{{node.id}}" class="example-card" cdkDragBoundary=".area-container" 
+        cdkDrag (cdkDragMoved)="updateLine(node.id)" [ngStyle]="{'top':getRandomValue('top', node.id), 'bottom':getRandomValue('bottom', node.id), 'left':getRandomValue('left', node.id), 'right':getRandomValue('right', node.id)}">
+            <div class="button-area">
+                <button mat-icon-button (click)="createNewLink(node.id)" *ngIf="linkQuery !== node.id">
+                    <mat-icon>add</mat-icon>
+                </button>
+                <button mat-icon-button (click)="deleteLinkQuery()" *ngIf="linkQuery === node.id">
+                    <mat-icon>clear</mat-icon>
+                </button>
             </div>
-            <div class="text-area">{{node.label}}</div>
-        </div>
-    </mat-card>
+            <div class="clear-button-area">
+                <button mat-icon-button (click)="deleteLink(node.id)" *ngIf="unlinkQuery !== node.id">
+                    <mat-icon>remove</mat-icon>
+                </button>
+                <button mat-icon-button (click)="deleteUnlinkQuery()" *ngIf="unlinkQuery === node.id">
+                    <mat-icon>clear</mat-icon>
+                </button>
+            </div>
+            <div class="data-area">
+                <div class="icon-area">
+                    <mat-icon>{{node.icon}}</mat-icon>
+                </div>
+                <div class="text-area">{{node.label}}</div>
+            </div>
+        </mat-card>
+    </div>
 </div>
